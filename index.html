@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRD App</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+
+    <div class="container mt-0.5">
+        <header>
+          <div id="jumbo-div1" class="container-fluid bg-primary text-light p-5">
+              <div class="container bg-dark p-5 mb-1" id="jumbo-div2">
+                  <h1 class="display-4">Pizza Paradise</h1>
+                  <p class="mt-3" id="jumbo-text2">We love all things pizza</p>
+              </div>
+          </div>
+        </header><br>
+        <div class="container">
+        <p id="firstparagraph" class="text-center fs-5 fw-bold">
+          Check out our list of different pizza styles. Use the form below to create a pizza style. 
+        </p>
+        </div>
+        </div>
+</head>
+<body>
+  <div class="container" id="main-form-div">
+    
+    <form class="mb-4">
+    <label>Crust ID (Thick crust = 1 / Thin crust = 2)</label>
+    <select class="crust" id="crust-select">
+    <option>1</option>
+    <option>2</option>
+    </select>
+    <textarea class="form-select" id="pizzaformtext1" placeholder="Pizza Name"></textarea> 
+    <textarea class="form-select" id="pizzaformtext2" placeholder="Toppings"></textarea>
+    <button onclick="onClickSaveInfo(event)" id="save" class="btn btn-warning btn-sm m-3">Save Pizza</button>
+    </form>
+    <div id="pizza-box" class='container'></div>
+    </div>
+    
+
+<script src="index.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+</body>
+</html>

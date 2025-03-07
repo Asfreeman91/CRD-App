@@ -1,0 +1,61 @@
+{
+  "pizza": [
+    {
+      "id": "1",
+      "style": "Neapolitan",
+      "traditionalToppings": "tomato sauce, mozzarella, tomatoes, basil leaves, oregano, olive oil",
+      "crustId": "1"
+    },
+    {
+      "id": "2",
+      "style": "Chicago",
+      "traditionalToppings": "tomato sauce, mozzarella, ground beef, sausage, pepperoni, onions, mushrooms, green peppers",
+      "crustId": "2"
+    },
+    {
+      "id": "3",
+      "style": "New York",
+      "traditionalToppings": "tomato sauce, mozzarella",
+      "crustId": "1"
+    },
+    {
+      "id": "4",
+      "style": "Sicilian",
+      "traditionalToppings": "tomato sauce, tomatoes, onions, anchovies, herbs",
+      "crustId": "2"
+    },
+    {
+      "id": "5"
+    },
+    {
+      "id": "6",
+      "style": "California",
+      "traditionalToppings": "Variable - avocado, artichokes, goat cheese, salmon, etc",
+      "crustId": "1"
+    },
+    {
+      "id": "7",
+      "style": "Detroit",
+      "traditionalToppings": "tomato sauce, pepperoni, brick cheese",
+      "crustId": "2"
+    },
+    {
+      "style": "St. Louis",
+      "traditionalToppings": "tomato sauce, provel cheese, oregano",
+      "crustId": "1",
+      "id": "8"
+    }
+  ],
+  "crust": [
+    {
+      "crustId": "1",
+      "type": "Thin",
+      "id": "b623"
+    },
+    {
+      "crustId": "2",
+      "type": "Thick",
+      "id": "eb20"
+    }
+  ]
+}
