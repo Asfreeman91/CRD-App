@@ -21,12 +21,8 @@ function renderPage(pizza) { //renders a div that contains content for each pizz
         <p>${pizza.traditionalToppings}</p>
         <p>${pizza.crustId}</p><br>
         <button id="deletepizza" class="btn btn-danger btn-sm m-3">Delete Pizza</button>
-        <button id="updatepizza" class="btn btn-info btn-sm m-3">Update Pizza</button> 
+        
     `
-    pizzaDiv.querySelector('#updatepizza').addEventListener("click", () => {
-        pizzaToModifyId = pizza.id;
-        renderNewPizzaDiv(pizza);
-    })
     pizzaDiv.querySelector('#deletepizza').addEventListener("click", async () => {
         await onClickDeletePizza(pizza.id);
         const pizzaToDelete = pizzaList.indexOf(pizza);
@@ -45,27 +41,18 @@ function renderNewPizzaDiv(pizzaData) { //creates a new pizza div from user inpu
 }
 
 async function onClickSaveInfo(event) { 
-    event.preventDefault()
 
     const pizzaData = { //pizza data includes the values from the three input fields
         style: pizzaFormText1.value,
         traditionalToppings: pizzaFormText2.value,
         crustId: crustText.value
 };
-
-    if(pizzaToModifyId !== null) {
-        pizzaData.id = pizzaToModifyId;
-        await onClickUpdatePizza(pizzaData);
-
-        const pizzaIndexToModify = pizzaList.findIndex(p => p.id === pizzaToModifyId); //modify pizza has an error and isn't working right now
-        pizzaList[pizzaIndexToModify] = pizzaData;
-    } else {
         const createdPizza = await onClickCreatePizza(pizzaData);
         pizzaList.push(createdPizza);
-    }
+    
     refreshList();
-    pizzaToModifyId = null
-    renderNewPizzaDiv({style: '', traditionalToppings: '', crustId: ''}); //the form is supposed to be cleared out and refreshed but there is an unknown error and this isn't working
+   
+    renderNewPizzaDiv({style: '', traditionalToppings: '', crustId: ''}); 
 }
 
 async function onClickFetchPizza() { //Fetch pizza data
@@ -82,17 +69,6 @@ async function onClickCreatePizza(newPizza) { //Create a pizza
         body: JSON.stringify(newPizza)
     });
     return response.json();
-}
-
-async function onClickUpdatePizza(modifiedPizza) { //Modify a pizza/currently has an unknown error and isn't working
-    
-    await fetch('http://localhost:3000/pizza/' + modifiedPizza.id, {
-        method: "PUT",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(modifiedPizza)
-    });
 }
 
 async function onClickDeletePizza(pizzaToDelete) { //Delete a pizza
